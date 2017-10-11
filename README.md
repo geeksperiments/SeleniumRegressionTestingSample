@@ -88,4 +88,4 @@ Then we need to build the solution so the tests can be discovered. To do this, g
 
 Finally in the test explorer pane, press **Run All**:
 
-![Test xxplorer in visual studio](/docs/img/TestExplorer.png)
+![Test explorer in visual studio](/docs/img/TestExplorer.png)
