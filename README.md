@@ -10,7 +10,7 @@ To begin, we will create a blank solution to hold our test code. Open Visual stu
 
 From the window that appears, go to **Other Project Types** then **Visual Studio Solutions** then pick **Blank Solution**. Set the **name** of the solution, the **location** on your machine it should be saved and press **OK**:
 
-![Creating a blank solution in visual studio](/docs/img/CreateBlankSolution.png)
+![Creating a blank solution in visual studio](/docs/img/CreateBlankVSSolution.png)
 
 Right click on the solution in the solution explorer and go to **Add** then **New Solution Folder**, set the folder name to "*Test*":
 
@@ -22,7 +22,7 @@ In the solution explorer, right click on the newly added solution folder and go 
 
 From the window that appears, go to **Visual C#** then **Windows Classic Desktop** and go to **Class Library(.NET Framework)**. Set the **name** of the solution, and append */Test* to the **location**:
 
-![Creating a new project in visual studio](/docs/img/CreateRegressionTestsClassLibrary.png)
+![Creating a new project in visual studio](/docs/img/CreateRegressionTestClassLibrary.png)
 
 ## Installing packages
 
@@ -38,7 +38,7 @@ From the window that appears, go to **Browse** then search for the following pac
 * selenium.webdriver
 * selenium.webdriver.chromedriver
 
-![Installing NuGet packages in visual studio](/docs/img/AddNuGetPackages.png)
+![Installing NuGet packages in visual studio](/docs/img/InstallNuGetPackages.png)
 
 ## Writing the first test
 
