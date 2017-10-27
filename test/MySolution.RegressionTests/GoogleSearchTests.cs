@@ -9,7 +9,10 @@ namespace MySolution.RegressionTests
         [Fact(DisplayName = "GIVEN the google homepage is open WHEN searching for new york times THEN results should appear")]
         public void NewYorkTimesSearch()
         {
-            using (var driver = new ChromeDriver(@".\"))
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArgument("headless");
+
+            using (var driver = new ChromeDriver(@".\", chromeOptions))
             {
                 driver.Navigate().GoToUrl("https://www.google.co.uk/");
                 driver.FindElementById("lst-ib").SendKeys("new york times");

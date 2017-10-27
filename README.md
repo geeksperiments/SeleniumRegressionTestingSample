@@ -89,3 +89,17 @@ Then we need to build the solution so the tests can be discovered. To do this, g
 Finally in the test explorer pane, press **Run All**:
 
 ![Test explorer in visual studio](/docs/img/TestExplorer.png)
+
+## Headless Chrome
+
+So far, when the test runs, it will open a new instance of the Chrome Browser, with each step of the test visible. Whilst this sounds like a good thing because it is possible to see what the test is doing, it can be a negative, because user interaction whilst the test is running can cause it to fail.
+
+Chrome has a headless mode, which will run the full browser in the background, without displaying anything on screen, although the page still renders and will work as expected, so the tests will still run and pass, even though nothing is visible. To turn on headless mode create a new instance of `ChromeOptions` with `headless` set as an argument and pass into the `ChromeDriver` constructor:
+
+```csharp
+var chromeOptions = new ChromeOptions();
+chromeOptions.AddArgument("headless");
+
+using (var driver = new ChromeDriver(@".\", chromeOptions))
+{
+```
