@@ -103,3 +103,33 @@ chromeOptions.AddArgument("headless");
 using (var driver = new ChromeDriver(@".\", chromeOptions))
 {
 ```
+
+## Taking Screenshots
+
+When running tests it can be helpful to save a screenshot to refer back to once the test run has completed. This can be done whether Chrome is running normally and is visible or running in headless mode. To make this easier and to keep the test code cleaner we will add an extension method. First in the solution explorer, right click on the test project and go to **add** then **class** then set the name of the file to **SeleniumHelpers.cs** and click **add**. In the file that appears add the following implementation:
+
+```csharp
+internal static class SeleniumHelpers
+{
+    public static void SaveScreenshot(this ITakesScreenshot driver, string screenshotName)
+    {
+        var screenshotFolder = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..", "artifacts", "screenshots");
+        Directory.CreateDirectory(screenshotFolder);
+
+        driver
+            .GetScreenshot()
+            .SaveAsFile(
+                Path.Combine(screenshotFolder, screenshotName + ".png"),
+                ScreenshotImageFormat.Png);
+    }
+}
+```
+
+Now in the test add a call to `driver.SaveScreenshot()` and pass in a filename like this:
+
+```csharp
+var nytLink = driver.FindElementByLinkText("The New York Times - Breaking News, World News & Multimedia");
+driver.SaveScreenshot("TestSearchResults");
+```
+
+After the test has run check the root folder, then the artifacts folder, then the screenshots folder and the screenshot will be saved as a new PNG file.

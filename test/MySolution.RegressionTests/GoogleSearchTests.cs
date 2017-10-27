@@ -19,6 +19,7 @@ namespace MySolution.RegressionTests
                 driver.FindElementById("lst-ib").Submit();
 
                 var nytLink = driver.FindElementByLinkText("The New York Times - Breaking News, World News & Multimedia");
+                driver.SaveScreenshot("TestSearchResults");
                 nytLink.Should().NotBeNull();
 
                 driver.Quit();
